@@ -24,6 +24,7 @@ public class Cliente {
         do {
 			imin=0;
 		
+//[BALANCE DE CARGA]
 // Este ciclo obtiene todas las cargas y las va guardando en su espacio correspondiente con la funcion getCarga
 //Tambien se compara cual carga es la mas pequeña para guardar en imin
 			for(i=0;i<=2;i++){
