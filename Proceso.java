@@ -1,3 +1,6 @@
+//El Hilo Proceso su principal funcion es correr el algoritmo SJF (Shortest Job First)
+//que es el proceso de ciclo de CPU mas corto
+
 public class Proceso extends Thread {
     public MemoryManager m1;
     public Proceso (MemoryManager m1){
