@@ -1,6 +1,5 @@
-// Language: java
+// Servidor recibe y despacha los procesos
 
-// El servidor recibe y despacha los procesos
 import java.rmi.AlreadyBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
