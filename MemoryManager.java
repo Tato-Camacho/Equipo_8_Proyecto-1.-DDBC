@@ -178,8 +178,7 @@ public void recorrerLista() {
 	else
 		System.out.println("La lista esta vacia");
 }
-
-//[BALANCE DE CARGA]	
+	
 //Ayuda a que en el proceso a trabajar se le quita una pagina porque anteriormente ya se
 //le hizo referencia a ella, entonces no es necesario volver a hacerlo
 private void decrementarMin(int index) {
