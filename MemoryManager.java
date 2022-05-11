@@ -1,4 +1,5 @@
 //MemoryManager es todo lo contenido en la Practica 4 del Curso
+//Administración de memoria virtual
 
 import java.util.Scanner;
 import java.util.StringTokenizer;
