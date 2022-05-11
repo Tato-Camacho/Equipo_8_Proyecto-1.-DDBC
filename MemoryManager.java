@@ -1,3 +1,5 @@
+//MemoryManager es todo lo contenido en la Practica 4 del Curso
+
 import java.util.Scanner;
 import java.util.StringTokenizer;
 import java.util.jar.*;
@@ -34,6 +36,8 @@ public int nref=0;
 
 
 //Toma un tamano de pagina, un tamano de memoria virtual, un tamano de memoria fisica e inicializa la memoria
+//Nos dice la cantidad de paginas fisicas y virtuales
+	
 public void init_memory(){
 	cantpagf = tam_memf/tam_p;
 	System.out.println("Cantidad de paginas fisicas: " + cantpagf);
@@ -51,8 +55,7 @@ public void init_memory(){
 
 
 
-//regresa el numero decimal dado en binario
-
+//Regresa el Numero Decimal dado en BINARIO
 public String bin(int num){
 	String binario = "";
 	int i = 0;
@@ -73,8 +76,7 @@ public String bin(int num){
 
 
 
-//regresa el numero decimal dado en hexadecimal
-
+//Regresa el numero decimal dado en HEXADECIMAL
 public String hex(int num){
 	String hexadecimal = "";
 	int i = 0;
@@ -99,6 +101,7 @@ public String hex(int num){
 
 
 //Crea un nuevo proceso, pide al usuario el nombre, el numero de paginas y la referencia
+// y lo asigna en la lista
 public void newProcess(){
 	System.out.println("Dame el nombre del proceso,  el numero de paginas y la cadena de referencias: \n");
 	Scanner entrada = new Scanner(System.in);
@@ -106,6 +109,9 @@ public void newProcess(){
 	parseInput(linea);
 	}
 
+
+//Se encarga de dividir la cadena para decira que paginas se les hace referencia,
+//nombre del proceso y cantidad de paginas a almacenar en nref (Numero de referencias)
 public void parseInput(String linea){
 	String entradas[] = new String[150];
 	int j=0, i=0;
@@ -125,10 +131,11 @@ public void parseInput(String linea){
 	}
 	System.out.println("------");
 
+	//Almacena el nodo en la lista
 	crearNodo(entradas[0], tokens, Integer.parseInt(entradas[1]), (j-2)/2);
 }
-//Crea un nuevo proceso, pide al usuario el nombre, el numero de paginas y la referencia
 
+//Crea un nuevo nodo, pide al usuario el nombre, el numero de paginas y la referencia
 private void crearNodo(String name, String tokens[], int pages, int references_time){
 	Process p = new Process(); 
 	p.references_array = new int[references_time][2]; 
@@ -152,6 +159,7 @@ private void crearNodo(String name, String tokens[], int pages, int references_t
 	}
 }
 
+//Recorre la lista 
 public void recorrerLista() {
 	Process actual;
 	int esp,espaux;
@@ -171,6 +179,8 @@ public void recorrerLista() {
 		System.out.println("La lista esta vacia");
 }
 
+//Ayuda a que en el proceso a trabajar se le quita una pagina porque anteriormente ya se
+//le hizo referencia a ella, entonces no es necesario volver a hacerlo
 private void decrementarMin(int index) {
 	Process actual;
 	int esp,espaux, i=0, band=0,j, asign=0;
@@ -229,6 +239,7 @@ private void decrementarMin(int index) {
 }
 
 
+//Elimina un Nodo	
 public void eliminarNodo(String proceso){
 
 	Process actual = primero;
@@ -263,7 +274,7 @@ public void eliminarNodo(String proceso){
 }
 
 
-
+//Sirve para saber cuanto tiempo tardara un proceso en ejecutarse
 private int calcula_tiempoc(){
 	int tiempo=0; 
 	Process actual = primero;
@@ -279,7 +290,7 @@ private int calcula_tiempoc(){
 }
 
 
-
+//Busca el proceso que menos tiempo tarda en ejecutarse
 private int buscaValMin(int max){
 	Process actual = primero;
 	int pMin=0, min=1000, i=0;
@@ -297,6 +308,7 @@ private int buscaValMin(int max){
 	return pMin;
 }
 
+//SFJ es el algoritmo (Shortest Job First) que es el proceso de ciclo de CPU mas corto
 public void sjf(){
 
 	int cuantum=-1,i, tiempo, cantp=0, proc, min;
@@ -317,6 +329,7 @@ public void sjf(){
 	}
 }
 
+//Main
 public static void main(String[] args){
 	int op;
 	MemoryManager m1= new MemoryManager();
