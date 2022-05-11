@@ -179,9 +179,9 @@ public void recorrerLista() {
 		System.out.println("La lista esta vacia");
 }
 
+//[BALANCE DE CARGA]	
 //Ayuda a que en el proceso a trabajar se le quita una pagina porque anteriormente ya se
 //le hizo referencia a ella, entonces no es necesario volver a hacerlo
-//[Balance de Carga]
 private void decrementarMin(int index) {
 	Process actual;
 	int esp,espaux, i=0, band=0,j, asign=0;
