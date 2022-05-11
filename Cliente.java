@@ -1,4 +1,4 @@
-// La clase Cliente sirve para 
+// Cliente se encarga de mandar los procesos y realizar el balance de cargas
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
